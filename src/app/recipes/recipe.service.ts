@@ -7,7 +7,7 @@ export class RecipeService {
   private recipes: Recipe[] = [
     new Recipe(
       'Kimchi',
-      'This dish is one of the most acient and still very popular dish. It originated from Korea',
+      'This dish is one of the most ancient and still very popular dish. It originated from Korea',
       [
         'Clean cabbage',
         'Chop cabbage',
