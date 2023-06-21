@@ -21,5 +21,25 @@ export class RecipeService {
         new Ingredient('fish sauce', 1, 'tbs'),
       ]
     ),
+    new Recipe(
+      'Vietnamese Banh Mi',
+      'A popular Vietnamese dish inspired by the Frech bread',
+      [
+        'Make the flour',
+        'Pour water into the flour',
+        'Hit the flour till it is ready',
+        'Put chopped cabbage into a jar and marinate it for 1 day',
+      ],
+      'https://images.unsplash.com/photo-1600454309261-3dc9b7597637?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=652&q=80',
+      [
+        new Ingredient('cabbage', 2, 'lbs'),
+        new Ingredient('chilly', 3, 'fruits'),
+        new Ingredient('fish sauce', 1, 'tbs'),
+      ]
+    ),
   ];
+
+  getRecipes() {
+    return this.recipes.slice();
+  }
 }
