@@ -20,9 +20,11 @@ export class RecipeItemComponent {
 
   ingredientClickHandler() {
     this.showIngredients = !this.showIngredients;
+    this.showInstructions = false;
   }
   instructionsClickHandler() {
     this.showInstructions = !this.showInstructions;
+    this.showIngredients = false;
   }
   advanceClickHandler() {
     this.showAdvanceOptions = !this.showAdvanceOptions;
