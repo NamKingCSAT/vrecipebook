@@ -9,8 +9,22 @@ import { Recipe } from '../../recipe.model';
 export class RecipeItemComponent {
   @Input() recipe!: Recipe;
   @Input() index!: number;
-  expanded = false;
-  expandButtonClickHandler() {
-    this.expanded = !this.expanded;
+  showControlPanel = false;
+  showIngredients = false;
+  showInstructions = false;
+  showAdvanceOptions = false;
+
+  showControls() {
+    this.showControlPanel = !this.showControlPanel;
+  }
+
+  ingredientClickHandler() {
+    this.showIngredients = !this.showIngredients;
+  }
+  instructionsClickHandler() {
+    this.showInstructions = !this.showInstructions;
+  }
+  advanceClickHandler() {
+    this.showAdvanceOptions = !this.showAdvanceOptions;
   }
 }
