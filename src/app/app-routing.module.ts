@@ -2,20 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipesComponent } from './recipes/recipes.component';
+import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   {
     path: 'recipes',
     component: RecipesComponent,
     children: [
-      // { path: '', component: RecipeStartComponent },
+      { path: '', component: RecipeListComponent },
       { path: 'new', component: RecipeEditComponent },
-      {
-        path: ':id/edit',
-        component: RecipeEditComponent,
-        //resolve: [RecipeResolverService],
-      },
     ],
   },
 ];
