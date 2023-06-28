@@ -9,6 +9,7 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipeService } from './recipes/recipe.service';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     RecipeItemComponent,
     RecipeEditComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [RecipeService],
   bootstrap: [AppComponent],
 })
