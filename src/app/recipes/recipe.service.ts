@@ -7,7 +7,6 @@ export class RecipeService {
   private recipes: Recipe[] = [
     new Recipe(
       'Kimchi',
-      'This dish is one of the most ancient and still very popular dish. It originated from Korea',
       [
         'Clean cabbage',
         'Chop cabbage',
@@ -23,7 +22,6 @@ export class RecipeService {
     ),
     new Recipe(
       'Vietnamese Banh Mi',
-      'A popular Vietnamese dish inspired by the Frech bread',
       [
         'Make the flour',
         'Pour water into the flour',

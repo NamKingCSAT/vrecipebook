@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="div col-xs-12">
-      <form [formGroup]="recipeForm">
+      <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
         <div class="row">
           <div class="col-xs-12">
             <div class="form-group">
-              <label for="name">Recipe Name</label>
+              <legend for="name">Recipe Name</legend>
               <input
                 type="text"
                 id="name"
@@ -17,70 +17,87 @@
         </div>
 
         <legend>Ingredients</legend>
-        <div class="ingredients-container">
-          <div class="row">
-            <div class="col-1">
-              <div class="form-group">
+        <div
+          class="ingredients-container container"
+          formArrayName="ingredients"
+        >
+          <div
+            *ngFor="let ingredientForm of ingredients.controls; let i = index"
+          >
+            <div class="row" [formGroup]="$any(ingredientForm)">
+              <div class="col-2 col-md-1 mt-4">
+                <button
+                  class="delete-btn"
+                  (click)="deleteIngredient(i)"
+                  class="btn btn-danger"
+                >
+                  X
+                </button>
+              </div>
+              <div class="col-5 col-md-1">
+                <label> Quantity</label>
                 <input
                   type="number"
-                  id="quantity"
                   class="form-control"
-                  formControlName="ingredientQuantity"
+                  formArrayName="ingredientQuantity"
                 />
               </div>
-            </div>
-            <div class="col-1">
-              <div class="form-group">
+              <div class="col-5 col-md-1">
+                <label> Unit</label>
                 <input
                   type="text"
-                  id="unit"
                   class="form-control"
-                  formControlName="ingredientUnit"
+                  formArrayName="ingredientUnit"
                 />
               </div>
-            </div>
-            <div class="col-9">
-              <div class="form-group">
+              <div class="col-12 col-md-9">
+                <label> Name</label>
                 <input
                   type="text"
-                  id="ingredientName"
                   class="form-control"
-                  formControlName="ingredientName"
+                  formArrayName="ingredientName"
                 />
-              </div>
-            </div>
-            <div class="col-1">
-              <div class="form-group">
-                <button>X</button>
               </div>
             </div>
           </div>
-          <button>Add</button>
+          <button type="button" class="btn btn-light" (click)="addIngredient()">
+            Add Recipe
+          </button>
         </div>
 
         <legend>Instructions</legend>
-        <div class="instruction-container">
-          <div class="row">
-            <div class="col-1">
-              <div class="form-group">
-                <input
-                  type="number"
-                  id="quantity"
-                  class="form-control"
-                  formControlName="ingredientQuantity"
-                />
+        <div class="instruction-container" formArrayName="instructions">
+          <div
+            class="row"
+            *ngFor="let instructionForm of instructions.controls; let i = index"
+          >
+            <div [formGroup]="$any(instructionForm)" class="row">
+              <div class="col-3 col-md-1">
+                <button (click)="deleteInstruction(i)" class="btn btn-danger">
+                  X
+                </button>
               </div>
-            </div>
-            <div class="col-1">
-              <div class="form-group"><button>+</button></div>
-            </div>
-            <div class="col-1">
-              <div class="form-group">
-                <button>X</button>
+              <div class="col-9 col-md-11">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    formArrayName="instruction"
+                  />
+                </div>
               </div>
             </div>
           </div>
+          <button
+            type="button"
+            class="btn btn-light"
+            (click)="addInstruction()"
+          >
+            Add Instruction
+          </button>
         </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Add Recipe</button>
       </form>
     </div>
   </div>
